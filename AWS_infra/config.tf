@@ -14,7 +14,7 @@ module "aws_config" {
 
 ############################################
 # AWS CONFIG RULES (Compliance)
-############################################
+#############################################
 
 module "config_rules" {
   source   = "./modules/config_rules"
