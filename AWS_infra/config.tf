@@ -12,7 +12,7 @@ module "aws_config" {
   role_arn      = module.iam_roles[each.value.role_key].role_arn
 }
 
-############################################
+#############################################
 # AWS CONFIG RULES (Compliance)
 #############################################
 

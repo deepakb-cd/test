@@ -18,7 +18,6 @@ terraform-plan:
 name: Terraform Plan
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Checkout Code
     uses: actions/checkout@v4
@@ -50,7 +49,6 @@ steps:
   - name: Terraform Plan
     working-directory: AWS_infra
     run: terraform plan
-```
 
 #  APPLY (WITH APPROVAL)
 
@@ -59,7 +57,6 @@ name: Terraform Apply
 runs-on: ubuntu-latest
 needs: terraform-plan
 
-```
 environment:
   name: production
 
@@ -88,4 +85,3 @@ steps:
   - name: Terraform Apply
     working-directory: AWS_infra
     run: terraform apply -auto-approve
-```
