@@ -1,83 +1,82 @@
 name: Terraform CI/CD
 
 permissions:
-contents: read
-pull-requests: write
+  contents: read
+  pull-requests: write
 
 on:
-pull_request:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
+  terraform-plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
 
-terraform-plan:
-name: Terraform Plan
-runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-steps:
-  - name: Checkout Code
-    uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.0
 
-  - name: Setup Terraform
-    uses: hashicorp/setup-terraform@v3
-    with:
-      terraform_version: 1.5.0
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
 
-  - name: Configure AWS Credentials
-    uses: aws-actions/configure-aws-credentials@v4
-    with:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: ap-south-1
+      - name: Terraform Init
+        working-directory: AWS_infra
+        run: terraform init
 
-  - name: Terraform Init
-    run: terraform init
-    working-directory: AWS_infra
+      - name: Terraform Format
+        working-directory: AWS_infra
+        run: terraform fmt -check
 
-  - name: Terraform Format
-    run: terraform fmt -check
-    working-directory: AWS_infra
+      - name: Terraform Validate
+        working-directory: AWS_infra
+        run: terraform validate
 
-  - name: Terraform Validate
-    run: terraform validate
-    working-directory: AWS_infra
+      - name: Terraform Plan
+        working-directory: AWS_infra
+        run: terraform plan
 
-  - name: Terraform Plan
-    run: terraform plan
-    working-directory: AWS_infra
+  terraform-apply:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    needs: terraform-plan
 
-terraform-apply:
-name: Terraform Apply
-runs-on: ubuntu-latest
-needs: terraform-plan
+    if: github.ref == 'refs/heads/main'
 
-if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
 
-environment:
-  name: production
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-steps:
-  - name: Checkout Code
-    uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.0
 
-  - name: Setup Terraform
-    uses: hashicorp/setup-terraform@v3
-    with:
-      terraform_version: 1.5.0
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
 
-  - name: Configure AWS Credentials
-    uses: aws-actions/configure-aws-credentials@v4
-    with:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: ap-south-1
+      - name: Terraform Init
+        working-directory: AWS_infra
+        run: terraform init
 
-  - name: Terraform Init
-    run: terraform init
-    working-directory: AWS_infra
-
-  - name: Terraform Apply
-    run: terraform apply -auto-approve
-    working-directory: AWS_infra
+      - name: Terraform Apply
+        working-directory: AWS_infra
+        run: terraform apply -auto-approve
