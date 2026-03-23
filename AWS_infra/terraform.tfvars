@@ -200,7 +200,7 @@ kms_keys = {
           Principal = {
             AWS = "*"
           }
-          Action = "kms:*"
+          Action   = "kms:*"
           Resource = "*"
         }
       ]
@@ -224,7 +224,7 @@ kms_keys = {
           Principal = {
             AWS = "*"
           }
-          Action = "kms:*"
+          Action   = "kms:*"
           Resource = "*"
         }
       ]

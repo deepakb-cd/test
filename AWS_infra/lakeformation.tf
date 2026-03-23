@@ -20,5 +20,5 @@ module "lake_permissions" {
   principal    = each.value.principal
   permissions  = each.value.permissions
   resource_arn = module.s3[each.value.bucket_ref].bucket_arn
-  depends_on = [module.lakeformation]
+  depends_on   = [module.lakeformation]
 }

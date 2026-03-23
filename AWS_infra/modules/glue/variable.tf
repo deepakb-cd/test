@@ -3,6 +3,6 @@ variable "db_name" {
 }
 
 variable "tags" {
-  type        = map(string)
-  default     = {}
+  type    = map(string)
+  default = {}
 }

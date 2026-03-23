@@ -23,5 +23,5 @@ module "config_rules" {
   rule_name        = each.value.rule_name
   rule_identifier  = each.value.rule_identifier
   input_parameters = lookup(each.value, "input_parameters", null)
-  depends_on = [module.aws_config]
+  depends_on       = [module.aws_config]
 }

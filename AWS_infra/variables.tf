@@ -39,7 +39,7 @@ variable "iam_roles" {
     managed_policy_arns = list(string)
 
     # Optional inline policy
-    inline_policy_json  = optional(string)
+    inline_policy_json = optional(string)
 
     # Tags
     tags = map(string)
