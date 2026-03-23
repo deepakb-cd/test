@@ -5,18 +5,21 @@ contents: read
 pull-requests: write
 
 on:
-pull_request:
 push:
 branches:
 - main
+pull_request:
 
 jobs:
-
-# PLAN
 
 terraform-plan:
 name: Terraform Plan
 runs-on: ubuntu-latest
+
+```
+defaults:
+  run:
+    working-directory: AWS_infra
 
 steps:
   - name: Checkout Code
@@ -35,32 +38,38 @@ steps:
       aws-region: ap-south-1
 
   - name: Terraform Init
-    working-directory: AWS_infra
-    run: terraform init
+    run: terraform init -input=false
 
-  - name: Terraform Format
-    working-directory: AWS_infra
+  - name: Terraform Format Check
     run: terraform fmt -check
 
   - name: Terraform Validate
-    working-directory: AWS_infra
     run: terraform validate
 
   - name: Terraform Plan
-    working-directory: AWS_infra
-    run: terraform plan
+    run: terraform plan -out=tfplan
 
-#  APPLY (WITH APPROVAL)
+  - name: Upload Plan Artifact
+    uses: actions/upload-artifact@v4
+    with:
+      name: tfplan
+      path: AWS_infra/tfplan
+```
 
 terraform-apply:
 name: Terraform Apply
 runs-on: ubuntu-latest
 needs: terraform-plan
 
+```
+if: github.ref == 'refs/heads/main'
+
 environment:
   name: production
 
-if: github.ref == 'refs/heads/main'
+defaults:
+  run:
+    working-directory: AWS_infra
 
 steps:
   - name: Checkout Code
@@ -79,9 +88,14 @@ steps:
       aws-region: ap-south-1
 
   - name: Terraform Init
-    working-directory: AWS_infra
-    run: terraform init
+    run: terraform init -input=false
+
+  - name: Download Plan Artifact
+    uses: actions/download-artifact@v4
+    with:
+      name: tfplan
+      path: AWS_infra
 
   - name: Terraform Apply
-    working-directory: AWS_infra
-    run: terraform apply -auto-approve
+    run: terraform apply -auto-approve tfplan
+```
