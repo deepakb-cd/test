@@ -1,0 +1,84 @@
+name: Terraform CI/CD
+
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  # 🟢 PLAN
+  terraform-plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.0
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ap-south-1
+
+      - name: Terraform Init
+        working-directory: AWS_infra
+        run: terraform init
+
+      - name: Terraform Format
+        working-directory: AWS_infra
+        run: terraform fmt -check
+
+      - name: Terraform Validate
+        working-directory: AWS_infra
+        run: terraform validate
+
+      - name: Terraform Plan
+        working-directory: AWS_infra
+        run: terraform plan
+
+  # 🔴 APPLY (WITH APPROVAL)
+  terraform-apply:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    needs: terraform-plan
+
+    # 🔐 Approval Gate
+    environment:
+      name: production
+
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.0
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ap-south-1
+
+      - name: Terraform Init
+        working-directory: AWS_infra
+        run: terraform init
+
+      - name: Terraform Apply
+        working-directory: AWS_infra
+        run: terraform apply -auto-approve
