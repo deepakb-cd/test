@@ -125,9 +125,9 @@ variable "common_tags" {
 
 
 #####################
-variable "region" {
-default = "ap-south-1"
-}
+# variable "region" {
+# default = "ap-south-1"
+# }
 
 variable "instance_type" {
 default = "t3.medium"
