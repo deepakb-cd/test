@@ -130,17 +130,17 @@ variable "common_tags" {
 # }
 
 variable "instance_type" {
-default = "t3.medium"
+  default = "t3.medium"
 }
 
 variable "ami_id" {
-description = "Ubuntu AMI ID"
+  description = "Ubuntu AMI ID"
 }
 
 variable "key_name" {
-description = "EC2 Key Pair Name"
+  description = "EC2 Key Pair Name"
 }
 
 variable "my_ip" {
-description = "Your IP for SSH access (e.g. 1.2.3.4/32)"
+  description = "Your IP for SSH access (e.g. 1.2.3.4/32)"
 }
