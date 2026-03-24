@@ -50,54 +50,37 @@ s3_buckets = {
 ############################################### 
 
 iam_roles = {
+
+  datalake = {
+    role_name = "datalake-role"
+    service   = "glue.amazonaws.com" # or "glue.amazonaws.com" / "athena.amazonaws.com"
+
+    managed_policy_arns = [
+      "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+      "arn:aws:iam::aws:policy/AWSGlueServiceRole"
+    ]
+
+    tags = {
+      Environment = "Prod"
+      Purpose     = "datalake"
+    }
+  }
+
+  # ✅ AWS Config Role
   config = {
     role_name = "aws-config-role"
-
-    assume_role_policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [{
-        Effect = "Allow"
-        Principal = {
-          Service = "config.amazonaws.com"
-        }
-        Action = "sts:AssumeRole"
-      }]
-    })
+    service   = "config.amazonaws.com"
 
     managed_policy_arns = [
       "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
     ]
 
     tags = {
-      Environment = "Production"
-      Project     = "DataLake"
-    }
-  }
-
-  glue = {
-    role_name = "glue-role"
-
-    assume_role_policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [{
-        Effect = "Allow"
-        Principal = {
-          Service = "glue.amazonaws.com"
-        }
-        Action = "sts:AssumeRole"
-      }]
-    })
-
-    managed_policy_arns = [
-      "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
-    ]
-
-    tags = {
-      Environment = "Production"
+      Environment = "Prod"
+      Purpose     = "compliance"
     }
   }
 }
-
 # ############################################
 # # CONFIG SETUP EXAMPLE
 # ############################################

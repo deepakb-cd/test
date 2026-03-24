@@ -31,22 +31,15 @@ variable "s3_buckets" {
 ####################################################
 
 variable "iam_roles" {
-  description = "Map of IAM roles with policies and configurations"
+  description = "IAM roles configuration"
 
   type = map(object({
     role_name           = string
-    assume_role_policy  = string
+    service             = string
     managed_policy_arns = list(string)
-
-    # Optional inline policy
-    inline_policy_json = optional(string)
-
-    # Tags
-    tags = map(string)
+    tags                = map(string)
   }))
 }
-
-
 # ############################################
 # # CONFIG SETUP
 # ############################################

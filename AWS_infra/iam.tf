@@ -3,8 +3,7 @@ module "iam_roles" {
   for_each = var.iam_roles
 
   role_name           = each.value.role_name
-  assume_role_policy  = each.value.assume_role_policy
+  service             = each.value.service
   managed_policy_arns = each.value.managed_policy_arns
-  inline_policy_json  = lookup(each.value, "inline_policy_json", null)
   tags                = each.value.tags
 }
