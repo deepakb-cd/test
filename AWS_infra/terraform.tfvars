@@ -53,11 +53,11 @@ iam_roles = {
 
   datalake = {
     role_name = "datalake-role"
-    service   = "glue.amazonaws.com" # or "glue.amazonaws.com" / "athena.amazonaws.com"
+    service   = "glue.amazonaws.com"
 
     managed_policy_arns = [
       "arn:aws:iam::aws:policy/AmazonS3FullAccess",
-      "arn:aws:iam::aws:policy/AWSGlueServiceRole"
+      "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
     ]
 
     tags = {
