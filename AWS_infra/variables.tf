@@ -144,3 +144,7 @@ variable "key_name" {
 variable "my_ip" {
   description = "Your IP for SSH access (e.g. 1.2.3.4/32)"
 }
+
+variable "subnet_id" {
+  description = "Subnet ID"
+}

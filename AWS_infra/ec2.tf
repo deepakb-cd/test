@@ -10,12 +10,7 @@ data "aws_vpc" "default" {
 
 # Get Default Subnet
 
-data "aws_subnets" "default" {
-  filter {
-    name   = "vpc-id"
-    values = [data.aws_vpc.default.id]
-  }
-}
+
 
 # Security Group for Splunk
 
@@ -69,7 +64,7 @@ resource "aws_security_group" "splunk_sg" {
 resource "aws_instance" "splunk_ec2" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
-  subnet_id              = data.aws_subnets.default.ids[0]
+  subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.splunk_sg.id]
   key_name               = var.key_name
 
