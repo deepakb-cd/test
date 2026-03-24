@@ -1,5 +1,5 @@
-variable "name" {}
-variable "bucket_name" {}
-variable "tags" {
-  type = map(string)
-}
+# variable "name" {}
+# variable "bucket_name" {}
+# variable "tags" {
+#   type = map(string)
+# }

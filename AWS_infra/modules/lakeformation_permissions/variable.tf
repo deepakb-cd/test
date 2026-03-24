@@ -1,5 +1,5 @@
-variable "principal" {}
-variable "permissions" {
-  type = list(string)
-}
-variable "resource_arn" {}
+# variable "principal" {}
+# variable "permissions" {
+#   type = list(string)
+# }
+# variable "resource_arn" {}
