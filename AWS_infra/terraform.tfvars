@@ -11,39 +11,39 @@ common_tags = {
 }
 
 
-# ######################################################
-# # S3 BUCKETS CONFIGURATION
-# ######################################################
+######################################################
+# S3 BUCKETS CONFIGURATION
+######################################################
 
 
-# s3_buckets = {
-#   B1 = {
-#     bucket_name = ""
-#     tags = {
-#       Environment = ""
-#       Project     = ""
-#     }
-#     object_keys = ["/", "/", "/"]
-#   }
+s3_buckets = {
+  B1 = {
+    bucket_name = "Demo-data-lake-bucket"
+    tags = {
+      Environment = "Prod"
+      Project     = "DataLake"
+    }
+    object_keys = ["o1/", "o2/", "o3/"]
+  }
 
-#   B2 = {
-#     bucket_name = ""
-#     tags = {
-#       Environment = ""
-#       Project     = ""
-#     }
-#     object_keys = ["/", "/", "/"]
-#   }
+  # B2 = {
+  #   bucket_name = ""
+  #   tags = {
+  #     Environment = ""
+  #     Project     = ""
+  #   }
+  #   object_keys = ["/", "/", "/"]
+  # }
 
-#   B3 = {
-#     bucket_name = ""
-#     tags = {
-#       Environment = ""
-#       Project     = ""
-#     }
-#     object_keys = ["/", "/", "/"]
-#   }
-# }
+  # B3 = {
+  #   bucket_name = ""
+  #   tags = {
+  #     Environment = ""
+  #     Project     = ""
+  #   }
+  #   object_keys = ["/", "/", "/"]
+  # }
+}
 
 # ###############################################
 # # IAM ROLES CONFIGURATION   

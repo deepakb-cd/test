@@ -12,19 +12,19 @@ variable "common_tags" {
   type        = map(string)
 }
 
-##############################################
+#############################################
 # S3 BUCKETS CONFIGURATION
-##############################################
+#############################################
 
-# variable "s3_buckets" {
-#   description = "Map of S3 bucket configurations"
+variable "s3_buckets" {
+  description = "Map of S3 bucket configurations"
 
-#   type = map(object({
-#     bucket_name = string
-#     tags        = map(string)
-#     object_keys = list(string)
-#   }))
-# }
+  type = map(object({
+    bucket_name = string
+    tags        = map(string)
+    object_keys = list(string)
+  }))
+}
 
 # ####################################################
 # # IAM ROLES CONFIGURATION
