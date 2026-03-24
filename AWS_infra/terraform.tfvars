@@ -18,7 +18,7 @@ common_tags = {
 
 s3_buckets = {
   B1 = {
-    bucket_name = "Demo-data-lake-bucket"
+    bucket_name = "demo-data-lake-bucket-1234"
     tags = {
       Environment = "Prod"
       Project     = "DataLake"
