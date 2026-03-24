@@ -148,3 +148,7 @@ variable "my_ip" {
 variable "subnet_id" {
   description = "Subnet ID"
 }
+
+variable "security_group_id" {
+  description = "Existing Security Group ID"
+}

@@ -270,7 +270,8 @@ common_tags = {
 #   }
 # }
 
-ami_id    = "ami-0ec10929233384c7f" # Ubuntu AMI (update this)
-key_name  = "splunknew"
-my_ip     = "192.168.2.55/32"
-subnet_id = "subnet-04586d7b0cedcb7ff"
+ami_id            = "ami-0ec10929233384c7f" # Ubuntu AMI (update this)
+key_name          = "splunknew"
+my_ip             = "192.168.2.55/32"
+subnet_id         = "subnet-04586d7b0cedcb7ff"
+security_group_id = "sg-00ab5521680bfde73"
