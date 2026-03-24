@@ -26,25 +26,25 @@ variable "s3_buckets" {
   }))
 }
 
-# ####################################################
-# # IAM ROLES CONFIGURATION
-# ####################################################
+####################################################
+# IAM ROLES CONFIGURATION
+####################################################
 
-# variable "iam_roles" {
-#   description = "Map of IAM roles with policies and configurations"
+variable "iam_roles" {
+  description = "Map of IAM roles with policies and configurations"
 
-#   type = map(object({
-#     role_name           = string
-#     assume_role_policy  = string
-#     managed_policy_arns = list(string)
+  type = map(object({
+    role_name           = string
+    assume_role_policy  = string
+    managed_policy_arns = list(string)
 
-#     # Optional inline policy
-#     inline_policy_json = optional(string)
+    # Optional inline policy
+    inline_policy_json = optional(string)
 
-#     # Tags
-#     tags = map(string)
-#   }))
-# }
+    # Tags
+    tags = map(string)
+  }))
+}
 
 
 # ############################################

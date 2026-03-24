@@ -45,58 +45,58 @@ s3_buckets = {
   # }
 }
 
-# ###############################################
-# # IAM ROLES CONFIGURATION   
-# ############################################### 
+###############################################
+# IAM ROLES CONFIGURATION   
+############################################### 
 
-# iam_roles = {
-#   config = {
-#     role_name = "aws-config-role"
+iam_roles = {
+  config = {
+    role_name = "aws-config-role"
 
-#     assume_role_policy = jsonencode({
-#       Version = "2012-10-17"
-#       Statement = [{
-#         Effect = "Allow"
-#         Principal = {
-#           Service = "config.amazonaws.com"
-#         }
-#         Action = "sts:AssumeRole"
-#       }]
-#     })
+    assume_role_policy = jsonencode({
+      Version = "2012-10-17"
+      Statement = [{
+        Effect = "Allow"
+        Principal = {
+          Service = "config.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }]
+    })
 
-#     managed_policy_arns = [
-#       "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
-#     ]
+    managed_policy_arns = [
+      "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
+    ]
 
-#     tags = {
-#       Environment = "Dev"
-#       Project     = "DataLake"
-#     }
-#   }
+    tags = {
+      Environment = "Production"
+      Project     = "DataLake"
+    }
+  }
 
-#   glue = {
-#     role_name = "glue-role"
+  glue = {
+    role_name = "glue-role"
 
-#     assume_role_policy = jsonencode({
-#       Version = "2012-10-17"
-#       Statement = [{
-#         Effect = "Allow"
-#         Principal = {
-#           Service = "glue.amazonaws.com"
-#         }
-#         Action = "sts:AssumeRole"
-#       }]
-#     })
+    assume_role_policy = jsonencode({
+      Version = "2012-10-17"
+      Statement = [{
+        Effect = "Allow"
+        Principal = {
+          Service = "glue.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }]
+    })
 
-#     managed_policy_arns = [
-#       "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
-#     ]
+    managed_policy_arns = [
+      "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
+    ]
 
-#     tags = {
-#       Environment = "Dev"
-#     }
-#   }
-# }
+    tags = {
+      Environment = "Production"
+    }
+  }
+}
 
 # ############################################
 # # CONFIG SETUP EXAMPLE
