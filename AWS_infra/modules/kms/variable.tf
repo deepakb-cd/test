@@ -1,10 +1,10 @@
-# variable "description" {}
-# variable "alias" {}
-# variable "tags" {
-#   type = map(string)
-# }
+variable "description" {}
+variable "alias" {}
+variable "tags" {
+  type = map(string)
+}
 
-# variable "enable_cloudtrail" {
-#   type    = bool
-#   default = false
-# }
+variable "enable_cloudtrail" {
+  type    = bool
+  default = false
+}
