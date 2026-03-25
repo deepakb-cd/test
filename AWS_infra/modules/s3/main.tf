@@ -106,10 +106,3 @@ resource "aws_s3_object" "objects" {
   key    = each.value
 }
 
-############################################
-# OUTPUT (MISSING BEFORE)
-############################################
-
-output "bucket_id" {
-  value = aws_s3_bucket.this.id
-}
