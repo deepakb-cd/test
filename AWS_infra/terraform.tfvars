@@ -126,7 +126,7 @@ cloudtrails = {
 
   prod = {
     name       = "cloudtrail-prod"
-    bucket_ref = "prod"
+    bucket_ref = "B1"
 
     tags = {
       Environment = "Prod"
