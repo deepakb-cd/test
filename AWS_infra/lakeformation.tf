@@ -6,7 +6,7 @@ module "lakeformation" {
   source   = "./modules/lakeformation"
   for_each = var.lakeformation_resources
 
-  resource_arn = module.s3[each.value.bucket_ref].bucket_arn
+  resource_arn = module.s3_buckets[each.value.bucket_ref].bucket_arn
 }
 
 ############################################
