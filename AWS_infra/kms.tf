@@ -11,5 +11,5 @@ module "kms" {
   tags              = each.value.tags
   enable_cloudtrail = each.value.enable_cloudtrail
 
-  region = var.region   
+  region = var.region
 }
