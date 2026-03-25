@@ -17,20 +17,22 @@ common_tags = {
 
 s3_buckets = {
   prod = {
-    bucket_name = "demo-data-lake-bucket-1234"
+    bucket_name  = "demo-data-lake-bucket-1234"
+
+    versioning   = "Enabled"
+    encryption   = "aws:kms"
+    block_public = true
+
+    kms_ref = "cloudtrail"   
+
+    enable_cloudtrail_policy = true
+    s3_key_prefix            = "cloudtrail"
 
     tags = {
       Environment = "prod"
     }
 
-    versioning   = "Enabled"
-    encryption   = "AES256"
-    block_public = true
-
     object_keys = []
-
-    enable_cloudtrail_policy = true
-    s3_key_prefix            = "cloudtrail"
   }
 }
 ###############################################

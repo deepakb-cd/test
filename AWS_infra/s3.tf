@@ -9,7 +9,7 @@ module "s3_buckets" {
   block_public             = each.value.block_public
   object_keys              = each.value.object_keys
   enable_cloudtrail_policy = each.value.enable_cloudtrail_policy
+  s3_key_prefix            = each.value.s3_key_prefix
 
-  kms_key_arn   = module.kms[each.value.kms_ref].arn
-  s3_key_prefix = each.value.s3_key_prefix
+  kms_key_arn = module.kms[each.value.kms_ref].arn
 }
