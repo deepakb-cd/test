@@ -1,27 +1,32 @@
-# variable "bucket_name" {}
+variable "bucket_name" {
+  type = string
+}
 
-# variable "tags" {
-#   type = map(string)
-# }
+variable "tags" {
+  type = map(string)
+}
 
-# variable "versioning" {
-#   default = "Enabled"
-# }
+variable "versioning" {
+  type    = string
+  default = "Enabled"
+}
 
-# variable "encryption" {
-#   default = "AES256"
-# }
+variable "encryption" {
+  type    = string
+  default = "AES256"
+}
 
-# variable "block_public" {
-#   default = true
-# }
+variable "block_public" {
+  type    = bool
+  default = true
+}
 
-# ############################################
-# # NEW VARIABLE FOR OBJECTS
-# ############################################
+variable "object_keys" {
+  type    = list(string)
+  default = []
+}
 
-# variable "object_keys" {
-#   description = "List of S3 object keys (folders/files)"
-#   type        = list(string)
-#   default     = []
-# }
+variable "enable_cloudtrail_policy" {
+  type    = bool
+  default = false
+}

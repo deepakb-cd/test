@@ -16,35 +16,30 @@ common_tags = {
 ######################################################
 
 
-# s3_buckets = {
-#   B1 = {
-#     bucket_name = "demo-data-lake-bucket-1234"
-#     tags = {
-#       Environment = "Prod"
-#       Project     = "DataLake"
-#     }
-#     object_keys = ["o1/", "o2/", "o3/"]
-#   }
+s3_buckets = {
+  prod = {
+    bucket_name = "demo-data-lake-bucket-1234"
 
-#   # B2 = {
-#   #   bucket_name = ""
-#   #   tags = {
-#   #     Environment = ""
-#   #     Project     = ""
-#   #   }
-#   #   object_keys = ["/", "/", "/"]
-#   # }
+    tags = {
+      Environment = "prod"
+      Project     = "data-lake"
+    }
 
-#   # B3 = {
-#   #   bucket_name = ""
-#   #   tags = {
-#   #     Environment = ""
-#   #     Project     = ""
-#   #   }
-#   #   object_keys = ["/", "/", "/"]
-#   # }
-# }
+    versioning   = "Enabled"
+    encryption   = "AES256"
+    block_public = true
 
+    object_keys = [
+      "raw/",
+      "processed/",
+      "athena-results/",
+      "cloudtrail/"
+    ]
+
+    enable_cloudtrail_policy = true
+  }
+
+}
 ###############################################
 # IAM ROLES CONFIGURATION   
 ############################################### 

@@ -16,15 +16,17 @@ variable "common_tags" {
 # S3 BUCKETS CONFIGURATION
 #############################################
 
-# variable "s3_buckets" {
-#   description = "Map of S3 bucket configurations"
-
-#   type = map(object({
-#     bucket_name = string
-#     tags        = map(string)
-#     object_keys = list(string)
-#   }))
-# }
+variable "s3_buckets" {
+  type = map(object({
+    bucket_name              = string
+    tags                     = map(string)
+    versioning               = string
+    encryption               = string
+    block_public             = bool
+    object_keys              = list(string)
+    enable_cloudtrail_policy = bool
+  }))
+}
 
 ####################################################
 # IAM ROLES CONFIGURATION
