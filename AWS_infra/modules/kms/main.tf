@@ -28,6 +28,11 @@ locals {
       "kms:DescribeKey"
     ]
     Resource = "*"
+    Condition = {
+      StringLike = {
+        "kms:EncryptionContext:aws:cloudtrail:arn" = "arn:aws:cloudtrail:*:${data.aws_caller_identity.current.account_id}:trail/*"
+      }
+    }
   }
 ] : []
 }
