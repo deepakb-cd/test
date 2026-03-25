@@ -150,18 +150,18 @@ iam_roles = {
 #############################################################
 # KMS KEYS CONFIGURATION EXAMPLE
 #############################################################
-# kms_keys = {
-#   cloudtrail = {
-#     description       = "CloudTrail KMS Key"
-#     alias             = "alias/cloudtrail-key"
-#     enable_cloudtrail = true
+kms_keys = {
+  cloudtrail = {
+    description       = "CloudTrail KMS Key"
+    alias             = "alias/cloudtrail-key"
+    enable_cloudtrail = true
 
-#     tags = {
-#       Name = "cloudtrail-kms"
-#     }
-#   }
+    tags = {
+      Name = "cloudtrail-kms"
+    }
+  }
 
-# }
+}
 
 # ############################################
 # # REGISTER RESOURCES
