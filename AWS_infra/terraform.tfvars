@@ -16,30 +16,30 @@ common_tags = {
 ######################################################
 
 
-s3_buckets = {
-  prod = {
-    bucket_name = "demo-data-lake-bucket-1234"
+# s3_buckets = {
+#   prod = {
+#     bucket_name = "demo-data-lake-bucket-1234"
 
-    tags = {
-      Environment = "prod"
-      Project     = "data-lake"
-    }
+#     tags = {
+#       Environment = "prod"
+#       Project     = "data-lake"
+#     }
 
-    versioning   = "Enabled"
-    encryption   = "AES256"
-    block_public = true
+#     versioning   = "Enabled"
+#     encryption   = "AES256"
+#     block_public = true
 
-    object_keys = [
-      "raw/",
-      "processed/",
-      "athena-results/",
-      "cloudtrail/"
-    ]
+#     object_keys = [
+#       "raw/",
+#       "processed/",
+#       "athena-results/",
+#       "cloudtrail/"
+#     ]
 
-    enable_cloudtrail_policy = true
-  }
+#     enable_cloudtrail_policy = true
+#   }
 
-}
+# }
 ###############################################
 # IAM ROLES CONFIGURATION   
 ############################################### 
@@ -117,19 +117,19 @@ iam_roles = {
 # ###########################################################
 # #CLOUDTRAILS CONFIGURATION EXAMPLE
 # ###########################################################
-cloudtrails = {
-  prod = {
-    name          = "cloudtrail-prod"
-    bucket_ref    = "prod"       # must match s3_buckets key
-    kms_ref       = "cloudtrail" # must match kms key
-    s3_key_prefix = "cloudtrail"
+# cloudtrails = {
+#   prod = {
+#     name          = "cloudtrail-prod"
+#     bucket_ref    = "prod"       # must match s3_buckets key
+#     kms_ref       = "cloudtrail" # must match kms key
+#     s3_key_prefix = "cloudtrail"
 
-    tags = {
-      Environment = "prod"
-      Project     = "data-lake"
-    }
-  }
-}
+#     tags = {
+#       Environment = "prod"
+#       Project     = "data-lake"
+#     }
+#   }
+# }
 
 # ###########################################################
 # # GLUE CATALOG DATABASE CONFIGURATION EXAMPLE
@@ -157,18 +157,18 @@ cloudtrails = {
 #############################################################
 # KMS KEYS CONFIGURATION EXAMPLE
 #############################################################
-kms_keys = {
-  cloudtrail = {
-    description       = "CloudTrail KMS Key"
-    alias             = "alias/cloudtrail-key"
-    enable_cloudtrail = true
+# kms_keys = {
+#   cloudtrail = {
+#     description       = "CloudTrail KMS Key"
+#     alias             = "alias/cloudtrail-key"
+#     enable_cloudtrail = true
 
-    tags = {
-      Name = "cloudtrail-kms"
-    }
-  }
+#     tags = {
+#       Name = "cloudtrail-kms"
+#     }
+#   }
 
-}
+# }
 
 # ############################################
 # # REGISTER RESOURCES
