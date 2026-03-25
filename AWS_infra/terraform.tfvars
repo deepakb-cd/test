@@ -122,27 +122,18 @@ iam_roles = {
 # ###########################################################
 # #CLOUDTRAILS CONFIGURATION EXAMPLE
 # ###########################################################
-# cloudtrails = {
-#   dev = {
-#     name       = "cloudtrail-dev"
-#     bucket_ref = "dev"
+cloudtrails = {
 
-#     tags = {
-#       Environment = "Dev"
-#       Project     = "DataLake"
-#     }
-#   }
+  prod = {
+    name       = "cloudtrail-prod"
+    bucket_ref = "prod"
 
-#   prod = {
-#     name       = "cloudtrail-prod"
-#     bucket_ref = "prod"
-
-#     tags = {
-#       Environment = "Prod"
-#       Project     = "DataLake"
-#     }
-#   }
-# }
+    tags = {
+      Environment = "Prod"
+      Project     = "DataLake"
+    }
+  }
+}
 
 # ###########################################################
 # # GLUE CATALOG DATABASE CONFIGURATION EXAMPLE
