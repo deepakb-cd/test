@@ -30,16 +30,16 @@ variable "s3_buckets" {
 # IAM ROLES CONFIGURATION
 ####################################################
 
-variable "iam_roles" {
-  description = "IAM roles configuration"
+# variable "iam_roles" {
+#   description = "IAM roles configuration"
 
-  type = map(object({
-    role_name           = string
-    service             = string
-    managed_policy_arns = list(string)
-    tags                = map(string)
-  }))
-}
+#   type = map(object({
+#     role_name           = string
+#     service             = string
+#     managed_policy_arns = list(string)
+#     tags                = map(string)
+#   }))
+# }
 # ############################################
 # # CONFIG SETUP
 # ############################################
@@ -122,26 +122,26 @@ variable "iam_roles" {
 # default = "ap-south-1"
 # }
 
-variable "instance_type" {
-  default = "t3.medium"
-}
+# variable "instance_type" {
+#   default = "t3.medium"
+# }
 
-variable "ami_id" {
-  description = "Ubuntu AMI ID"
-}
+# variable "ami_id" {
+#   description = "Ubuntu AMI ID"
+# }
 
-variable "key_name" {
-  description = "EC2 Key Pair Name"
-}
+# variable "key_name" {
+#   description = "EC2 Key Pair Name"
+# }
 
-variable "my_ip" {
-  description = "Your IP for SSH access (e.g. 1.2.3.4/32)"
-}
+# variable "my_ip" {
+#   description = "Your IP for SSH access (e.g. 1.2.3.4/32)"
+# }
 
-variable "subnet_id" {
-  description = "Subnet ID"
-}
+# variable "subnet_id" {
+#   description = "Subnet ID"
+# }
 
-variable "security_group_id" {
-  description = "Existing Security Group ID"
-}
+# variable "security_group_id" {
+#   description = "Existing Security Group ID"
+# }

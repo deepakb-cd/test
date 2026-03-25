@@ -1,27 +1,27 @@
-# provider "aws" {
-# region = var.region
+# # provider "aws" {
+# # region = var.region
+# # }
+
+# # Get Default VPC
+
+# data "aws_vpc" "default" {
+#   default = true
 # }
 
-# Get Default VPC
+# # EC2 Instance
 
-data "aws_vpc" "default" {
-  default = true
-}
+# resource "aws_instance" "splunk_ec2" {
+#   ami                    = var.ami_id
+#   instance_type          = var.instance_type
+#   subnet_id              = var.subnet_id
+#   vpc_security_group_ids = [var.security_group_id]
+#   key_name               = var.key_name
 
-# EC2 Instance
+#   tags = {
+#     Name = "Splunk-Server"
+#   }
+# }
 
-resource "aws_instance" "splunk_ec2" {
-  ami                    = var.ami_id
-  instance_type          = var.instance_type
-  subnet_id              = var.subnet_id
-  vpc_security_group_ids = [var.security_group_id]
-  key_name               = var.key_name
-
-  tags = {
-    Name = "Splunk-Server"
-  }
-}
-
-output "public_ip" {
-  value = aws_instance.splunk_ec2.public_ip
-}
+# output "public_ip" {
+#   value = aws_instance.splunk_ec2.public_ip
+# }

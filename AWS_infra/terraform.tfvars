@@ -49,38 +49,38 @@ s3_buckets = {
 # IAM ROLES CONFIGURATION   
 ############################################### 
 
-iam_roles = {
+# iam_roles = {
 
-  datalake = {
-    role_name = "datalake-role"
-    service   = "glue.amazonaws.com"
+#   datalake = {
+#     role_name = "datalake-role"
+#     service   = "glue.amazonaws.com"
 
-    managed_policy_arns = [
-      "arn:aws:iam::aws:policy/AmazonS3FullAccess",
-      "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
-    ]
+#     managed_policy_arns = [
+#       "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+#       "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
+#     ]
 
-    tags = {
-      Environment = "Prod"
-      Purpose     = "datalake"
-    }
-  }
+#     tags = {
+#       Environment = "Prod"
+#       Purpose     = "datalake"
+#     }
+#   }
 
-  # ✅ AWS Config Role
-  config = {
-    role_name = "aws-config-role"
-    service   = "config.amazonaws.com"
+#   # ✅ AWS Config Role
+#   config = {
+#     role_name = "aws-config-role"
+#     service   = "config.amazonaws.com"
 
-    managed_policy_arns = [
-      "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
-    ]
+#     managed_policy_arns = [
+#       "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
+#     ]
 
-    tags = {
-      Environment = "Prod"
-      Purpose     = "compliance"
-    }
-  }
-}
+#     tags = {
+#       Environment = "Prod"
+#       Purpose     = "compliance"
+#     }
+#   }
+# }
 # ############################################
 # # CONFIG SETUP EXAMPLE
 # ############################################
@@ -253,8 +253,8 @@ iam_roles = {
 #   }
 # }
 
-ami_id            = "ami-0ec10929233384c7f" # Ubuntu AMI (update this)
-key_name          = "splunknew"
-my_ip             = "192.168.2.55/32"
-subnet_id         = "subnet-04586d7b0cedcb7ff"
-security_group_id = "sg-00ab5521680bfde73"
+# ami_id            = "ami-0ec10929233384c7f" # Ubuntu AMI (update this)
+# key_name          = "splunknew"
+# my_ip             = "192.168.2.55/32"
+# subnet_id         = "subnet-04586d7b0cedcb7ff"
+# security_group_id = "sg-00ab5521680bfde73"

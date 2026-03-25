@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"iam_roles","Source":"./modules/iam","Dir":"modules/iam"},{"Key":"s3_buckets","Source":"./modules/s3","Dir":"modules/s3"}]}
