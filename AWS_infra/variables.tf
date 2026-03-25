@@ -71,15 +71,15 @@ variable "iam_roles" {
 # CLOUDTRAILS
 #############################################
 
-variable "cloudtrails" {
-  type = map(object({
-    name          = string
-    bucket_ref    = string
-    kms_ref       = string
-    s3_key_prefix = string
-    tags          = map(string)
-  }))
-}
+# variable "cloudtrails" {
+#   type = map(object({
+#     name          = string
+#     bucket_ref    = string
+#     kms_ref       = string
+#     s3_key_prefix = string
+#     tags          = map(string)
+#   }))
+# }
 
 #############################################
 # KMS KEYS
