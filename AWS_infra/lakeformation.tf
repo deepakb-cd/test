@@ -1,17 +1,17 @@
-# ############################################
-# #  REGISTER RESOURCES IN LAKE FORMATION
-# ############################################
+############################################
+#  REGISTER RESOURCES IN LAKE FORMATION
+############################################
 
-# module "lakeformation" {
-#   source   = "./modules/lakeformation"
-#   for_each = var.lakeformation_resources
+module "lakeformation" {
+  source   = "./modules/lakeformation"
+  for_each = var.lakeformation_resources
 
-#   resource_arn = module.s3[each.value.bucket_ref].bucket_arn
-# }
+  resource_arn = module.s3[each.value.bucket_ref].bucket_arn
+}
 
-# ############################################
-# #  ASSIGN PERMISSIONS
-# ############################################
+############################################
+#  ASSIGN PERMISSIONS
+############################################
 
 # module "lake_permissions" {
 #   source   = "./modules/lakeformation_permissions"

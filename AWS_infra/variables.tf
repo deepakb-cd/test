@@ -94,15 +94,15 @@ variable "kms_keys" {
     enable_cloudtrail = bool
   }))
 }
-# ############################################
-# # LAKEFORMATION RESOURCES
-# ############################################
+############################################
+# LAKEFORMATION RESOURCES
+############################################
 
-# variable "lakeformation_resources" {
-#   type = map(object({
-#     bucket_ref = string
-#   }))
-# }
+variable "lakeformation_resources" {
+  type = map(object({
+    bucket_ref = string
+  }))
+}
 
 # ############################################
 # # LAKEFORMATION PERMISSIONS

@@ -163,19 +163,15 @@ kms_keys = {
 
 }
 
-# ############################################
-# # REGISTER RESOURCES
-# ############################################
+############################################
+# REGISTER RESOURCES
+############################################
 
-# lakeformation_resources = {
-#   dev = {
-#     bucket_ref = "dev"
-#   }
-
-#   prod = {
-#     bucket_ref = "prod"
-#   }
-# }
+lakeformation_resources = {
+  prod = {
+    bucket_ref = "prod"
+  }
+}
 
 # ############################################
 # # PERMISSIONS
