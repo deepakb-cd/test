@@ -122,18 +122,18 @@ iam_roles = {
 # ###########################################################
 # #CLOUDTRAILS CONFIGURATION EXAMPLE
 # ###########################################################
-cloudtrails = {
+# cloudtrails = {
 
-  prod = {
-    name       = "cloudtrail-prod"
-    bucket_ref = "B1"
+#   prod = {
+#     name       = "cloudtrail-prod"
+#     bucket_ref = "B1"
 
-    tags = {
-      Environment = "Prod"
-      Project     = "DataLake"
-    }
-  }
-}
+#     tags = {
+#       Environment = "Prod"
+#       Project     = "DataLake"
+#     }
+#   }
+# }
 
 # ###########################################################
 # # GLUE CATALOG DATABASE CONFIGURATION EXAMPLE
@@ -158,59 +158,21 @@ cloudtrails = {
 #   }
 # }
 
-# #############################################################
-# # KMS KEYS CONFIGURATION EXAMPLE
-# #############################################################
-# kms_keys = {
-#   dev = {
-#     description = "KMS key for Dev Data Lake"
-#     alias       = "datalake-dev"
+#############################################################
+# KMS KEYS CONFIGURATION EXAMPLE
+#############################################################
+kms_keys = {
+  cloudtrail = {
+    description       = "CloudTrail KMS Key"
+    alias             = "alias/cloudtrail-key"
+    enable_cloudtrail = true
 
-#     key_policy = jsonencode({
-#       Version = "2012-10-17"
-#       Statement = [
-#         {
-#           Effect = "Allow"
-#           Principal = {
-#             AWS = "*"
-#           }
-#           Action   = "kms:*"
-#           Resource = "*"
-#         }
-#       ]
-#     })
+    tags = {
+      Name = "cloudtrail-kms"
+    }
+  }
 
-#     tags = {
-#       Environment = "Dev"
-#       Project     = "DataLake"
-#     }
-#   }
-
-#   prod = {
-#     description = "KMS key for Prod Data Lake"
-#     alias       = "datalake-prod"
-
-#     key_policy = jsonencode({
-#       Version = "2012-10-17"
-#       Statement = [
-#         {
-#           Effect = "Allow"
-#           Principal = {
-#             AWS = "*"
-#           }
-#           Action   = "kms:*"
-#           Resource = "*"
-#         }
-#       ]
-#     })
-
-#     tags = {
-#       Environment = "Prod"
-#       Project     = "DataLake"
-#     }
-#   }
-# }
-
+}
 
 # ############################################
 # # REGISTER RESOURCES

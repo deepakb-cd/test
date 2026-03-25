@@ -69,31 +69,28 @@ variable "iam_roles" {
 # CLOUDTRAILS
 #############################################
 
-variable "cloudtrails" {
-  description = "CloudTrail configurations"
-
-  type = map(object({
-    name       = string
-    bucket_ref = string
-    tags       = map(string)
-  }))
-}
-
-# #############################################
-# # KMS KEYS
-# #############################################
-
-# variable "kms_keys" {
-#   description = "Map of KMS keys"
+# variable "cloudtrails" {
+#   description = "CloudTrail configurations"
 
 #   type = map(object({
-#     description = string
-#     alias       = string
-#     key_policy  = string
-#     tags        = map(string)
+#     name       = string
+#     bucket_ref = string
+#     tags       = map(string)
 #   }))
 # }
 
+#############################################
+# KMS KEYS
+#############################################
+
+variable "kms_keys" {
+  type = map(object({
+    description       = string
+    alias             = string
+    tags              = map(string)
+    enable_cloudtrail = bool
+  }))
+}
 # ############################################
 # # LAKEFORMATION RESOURCES
 # ############################################
