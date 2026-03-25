@@ -16,34 +16,34 @@ common_tags = {
 ######################################################
 
 
-s3_buckets = {
-  B1 = {
-    bucket_name = "demo-data-lake-bucket-1234"
-    tags = {
-      Environment = "Prod"
-      Project     = "DataLake"
-    }
-    object_keys = ["o1/", "o2/", "o3/"]
-  }
+# s3_buckets = {
+#   B1 = {
+#     bucket_name = "demo-data-lake-bucket-1234"
+#     tags = {
+#       Environment = "Prod"
+#       Project     = "DataLake"
+#     }
+#     object_keys = ["o1/", "o2/", "o3/"]
+#   }
 
-  # B2 = {
-  #   bucket_name = ""
-  #   tags = {
-  #     Environment = ""
-  #     Project     = ""
-  #   }
-  #   object_keys = ["/", "/", "/"]
-  # }
+#   # B2 = {
+#   #   bucket_name = ""
+#   #   tags = {
+#   #     Environment = ""
+#   #     Project     = ""
+#   #   }
+#   #   object_keys = ["/", "/", "/"]
+#   # }
 
-  # B3 = {
-  #   bucket_name = ""
-  #   tags = {
-  #     Environment = ""
-  #     Project     = ""
-  #   }
-  #   object_keys = ["/", "/", "/"]
-  # }
-}
+#   # B3 = {
+#   #   bucket_name = ""
+#   #   tags = {
+#   #     Environment = ""
+#   #     Project     = ""
+#   #   }
+#   #   object_keys = ["/", "/", "/"]
+#   # }
+# }
 
 ###############################################
 # IAM ROLES CONFIGURATION   
