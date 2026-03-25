@@ -16,19 +16,19 @@ variable "common_tags" {
 # S3 BUCKETS CONFIGURATION
 #############################################
 
-variable "s3_buckets" {
-  type = map(object({
-    bucket_name              = string
-    tags                     = map(string)
-    versioning               = string
-    encryption               = string
-    block_public             = bool
-    object_keys              = list(string)
-    enable_cloudtrail_policy = bool
-    s3_key_prefix            = string
-    kms_ref                  = string
-  }))
-}
+# variable "s3_buckets" {
+#   type = map(object({
+#     bucket_name              = string
+#     tags                     = map(string)
+#     versioning               = string
+#     encryption               = string
+#     block_public             = bool
+#     object_keys              = list(string)
+#     enable_cloudtrail_policy = bool
+#     s3_key_prefix            = string
+#     kms_ref                  = string
+#   }))
+# }
 ####################################################
 # IAM ROLES CONFIGURATION
 ####################################################
@@ -72,28 +72,28 @@ variable "iam_roles" {
 # CLOUDTRAILS
 #############################################
 
-variable "cloudtrails" {
-  type = map(object({
-    name          = string
-    bucket_ref    = string
-    kms_ref       = string
-    s3_key_prefix = string
-    tags          = map(string)
-  }))
-}
+# variable "cloudtrails" {
+#   type = map(object({
+#     name          = string
+#     bucket_ref    = string
+#     kms_ref       = string
+#     s3_key_prefix = string
+#     tags          = map(string)
+#   }))
+# }
 
 #############################################
 # KMS KEYS
 #############################################
 
-variable "kms_keys" {
-  type = map(object({
-    description       = string
-    alias             = string
-    tags              = map(string)
-    enable_cloudtrail = bool
-  }))
-}
+# variable "kms_keys" {
+#   type = map(object({
+#     description       = string
+#     alias             = string
+#     tags              = map(string)
+#     enable_cloudtrail = bool
+#   }))
+# }
 # ############################################
 # # LAKEFORMATION RESOURCES
 # ############################################
