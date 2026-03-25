@@ -26,7 +26,7 @@ variable "s3_buckets" {
     object_keys              = list(string)
     enable_cloudtrail_policy = bool
     s3_key_prefix            = string
-    kms_ref                  = string   
+    kms_ref                  = string
   }))
 }
 ####################################################
