@@ -15,26 +15,26 @@ common_tags = {
 # S3 BUCKETS CONFIGURATION
 ######################################################
 
-# s3_buckets = {
-#   prod = {
-#     bucket_name = "demo-data-lake-bucket-1234"
+s3_buckets = {
+  prod = {
+    bucket_name = "demo-data-lake-bucket-1234"
 
-#     versioning   = "Enabled"
-#     encryption   = "aws:kms"
-#     block_public = true
+    versioning   = "Enabled"
+    encryption   = "aws:kms"
+    block_public = true
 
-#     kms_ref = "cloudtrail"
+    kms_ref = "cloudtrail"
 
-#     enable_cloudtrail_policy = true
-#     s3_key_prefix            = "cloudtrail"
+    enable_cloudtrail_policy = true
+    s3_key_prefix            = "cloudtrail"
 
-#     tags = {
-#       Environment = "prod"
-#     }
+    tags = {
+      Environment = "prod"
+    }
 
-#     object_keys = []
-#   }
-# }
+    object_keys = []
+  }
+}
 ###############################################
 # IAM ROLES CONFIGURATION   
 ############################################### 
