@@ -1,3 +1,3 @@
-output "resource_arn" {
-  value = var.resource_arn
-}
+# output "resource_arn" {
+#   value = var.resource_arn
+# }
