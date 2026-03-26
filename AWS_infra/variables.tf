@@ -33,16 +33,16 @@ variable "common_tags" {
 # IAM ROLES CONFIGURATION
 ####################################################
 
-variable "iam_roles" {
-  description = "IAM roles configuration"
+# variable "iam_roles" {
+#   description = "IAM roles configuration"
 
-  type = map(object({
-    role_name           = string
-    service             = string
-    managed_policy_arns = list(string)
-    tags                = map(string)
-  }))
-}
+#   type = map(object({
+#     role_name           = string
+#     service             = string
+#     managed_policy_arns = list(string)
+#     tags                = map(string)
+#   }))
+# }
 # ############################################
 # # CONFIG SETUP
 # ############################################
