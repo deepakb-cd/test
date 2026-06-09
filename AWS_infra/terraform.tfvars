@@ -147,21 +147,21 @@ s3_buckets = {
 #   }
 # }
 
-# #############################################################
-# # KMS KEYS CONFIGURATION EXAMPLE
-# ##############################################################
-# kms_keys = {
-#   cloudtrail = {
-#     description       = "CloudTrail KMS Key"
-#     alias             = "alias/cloudtrail-key"
-#     enable_cloudtrail = true
+#############################################################
+# KMS KEYS CONFIGURATION EXAMPLE
+##############################################################
+kms_keys = {
+  cloudtrail = {
+    description       = "CloudTrail KMS Key"
+    alias             = "alias/cloudtrail-key"
+    enable_cloudtrail = true
 
-#     tags = {
-#       Name = "cloudtrail-kms"
-#     }
-#   }
+    tags = {
+      Name = "cloudtrail-kms"
+    }
+  }
 
-# }
+}
 
 ############################################
 # REGISTER RESOURCES
