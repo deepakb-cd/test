@@ -24,3 +24,5 @@ provider "aws" {
     tags = var.common_tags
   }
 }
+
+#
